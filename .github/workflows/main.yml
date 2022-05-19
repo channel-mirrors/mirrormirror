@@ -20,11 +20,13 @@ defaults:
     working-directory: ./
 
 jobs:
-  permissions:
-    contents: read
-
   mirror-pkgs:
+    # as advised by github!
+    permissions:
+      contents: read
+
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         subdir: 
@@ -36,6 +38,7 @@ jobs:
           - linux-ppc64le
           - noarch
       fail-fast: false
+
     env:
       GHA_USER: channel-mirrors
       GHA_PAT: ${{ secrets.GHA_PAT }}
