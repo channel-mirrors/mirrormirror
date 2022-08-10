@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      max-parallel: 1
+      max-parallel: 12
       matrix:
         subdir: 
           - linux-64
