@@ -44,7 +44,7 @@ jobs:
       channel: ${{ github.event.inputs.channel }}
       package: ${{ github.event.inputs.package }}
       subdir: ${{ matrix.subdir }}
-      registry: https://ghcr.io/channel-mirrors
+      registry: ghcr.io/channel-mirrors
     secrets:
       ORAS_PASS: ${{ secrets.GHA_PAT }}
       ORAS_USER: "channel-mirrors"
