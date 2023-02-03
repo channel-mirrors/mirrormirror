@@ -26,7 +26,7 @@ on:
         required: true
 
 jobs:
-  reusable_workflow_job:
+  mirror_conda_channels:
     # as advised by github!
     permissions:
       contents: read
@@ -51,7 +51,7 @@ jobs:
       - name: install conda-oci-mirror
         shell: bash -l {0}
         run: |
-          python -m pip install git+https://github.com/channel-mirrors/conda-oci-mirror@d63427e03d0930a4e284f77322160319a7b8cf04
+          python -m pip install git+https://github.com/channel-mirrors/conda-oci-mirror@main
 
       - name:  clone project and mirror
         shell: bash -l {0}
