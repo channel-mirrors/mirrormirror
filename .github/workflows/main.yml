@@ -47,4 +47,4 @@ jobs:
       registry: https://ghcr.io/channel-mirrors
     secrets:
       ORAS_PASS: ${{ secrets.GHA_PAT }}
-      ORAS_USER: ${{ secrets.GHA_USER }}
+      ORAS_USER: "channel-mirrors"

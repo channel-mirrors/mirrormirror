@@ -31,6 +31,10 @@ jobs:
     permissions:
       contents: read
 
+    env:
+      # make sure that the output is not buffered
+      PYTHONUNBUFFERED: 1
+
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -44,16 +48,17 @@ jobs:
           environment-file: env.yml
           micromamba-version: latest
 
+      - name: install conda-oci-mirror
+        shell: bash -l {0}
+        run: |
+          python -m pip install git+https://github.com/channel-mirrors/conda-oci-mirror@d63427e03d0930a4e284f77322160319a7b8cf04
+
       - name:  clone project and mirror
         shell: bash -l {0}
         env:
           ORAS_USER: ${{ secrets.ORAS_USER }}
           ORAS_PASS: ${{ secrets.ORAS_PASS }}
-
         run: |
-          export PYTHONUNBUFFERED=1
-          python -m pip install git+https://github.com/channel-mirrors/conda-oci-mirror@d63427e03d0930a4e284f77322160319a7b8cf04
-
           conda-oci mirror \
             --channel ${{ inputs.channel }} \
             --subdir ${{ inputs.subdir }} \
