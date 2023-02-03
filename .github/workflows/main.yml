@@ -10,6 +10,7 @@ on:
         default: 'conda-forge'
         required: false
         type: string
+
       package:
         description: 'Package to be mirrored. Enter "all" if want to mirror all packages of the channel'
         required: true
@@ -30,7 +31,7 @@ jobs:
     strategy:
       max-parallel: 12
       matrix:
-        subdir: 
+        subdir:
           - linux-64
           - osx-64
           - osx-arm64
@@ -40,29 +41,16 @@ jobs:
           - noarch
       fail-fast: false
 
-    env:
-      GHA_USER: channel-mirrors
-      GHA_PAT: ${{ secrets.GHA_PAT }}
-
     steps:
       - uses: actions/checkout@v2
         with:
           ref: main
 
-      - name: install mamba
-        uses: mamba-org/provision-with-micromamba@main
+      - uses: channel-mirrors/mirrormirror/.github/workflows/run_mirror.yml@main
         with:
-          environment-file: env.yml
-          micromamba-version: latest
-
-      - name:  clone project and mirror
-        shell: bash -l {0}
-        run: |
-          export PYTHONUNBUFFERED=1
-          python -m pip install git+https://github.com/wolfv/conda_oci_mirror@slow_upload
-          echo ${{ env.GHA_PAT }} | oras login https://ghcr.io -u ${{ env.GHA_USER }} --password-stdin
-          conda-oci mirror \
-            --channel ${{ github.event.inputs.channel }} \
-            --subdirs ${{ matrix.subdir }} \
-            --packages ${{ github.event.inputs.package }} \
-            --user ${{ env.GHA_USER }}
+          channel: ${{ github.event.inputs.channel }}
+          package: ${{ github.event.inputs.package }}
+          subdir: ${{ matrix.subdir }}
+          registry: https://ghcr.io/channel-mirrors
+          ORAS_PASS: ${{ secrets.GHA_PAT }}
+          ORAS_USER: ${{ secrets.GHA_USER }}

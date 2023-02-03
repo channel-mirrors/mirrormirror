@@ -1,0 +1,57 @@
+# as advised by github!
+permissions:
+  contents: read
+
+on:
+  workflow_call:
+    inputs:
+      registry:
+        required: true
+        type: string
+      channel:
+        required: true
+        type: string
+      package:
+        required: false
+        default: '*'
+        type: string
+      subdir:
+        required: true
+        type: string
+
+    secrets:
+      ORAS_USER:
+        required: true
+      ORAS_PASS:
+        required: true
+
+jobs:
+  reusable_workflow_job:
+    # as advised by github!
+    permissions:
+      contents: read
+
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: install mamba
+        uses: mamba-org/provision-with-micromamba@main
+        with:
+          environment-file: env.yml
+          micromamba-version: latest
+
+      - name:  clone project and mirror
+        shell: bash -l {0}
+        env:
+          ORAS_USER: ${{ secrets.ORAS_USER }}
+          ORAS_PASS: ${{ secrets.ORAS_PASS }}
+
+        run: |
+          export PYTHONUNBUFFERED=1
+          python -m pip install git+https://github.com/channel-mirrors/conda-oci-mirror@d63427e03d0930a4e284f77322160319a7b8cf04
+
+          conda-oci mirror \
+            --channel ${{ inputs.channel }} \
+            --subdir ${{ inputs.subdir }} \
+            --package ${{ inputs.package }} \
+            --registry ${{ inputs.registry }}
