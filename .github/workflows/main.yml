@@ -21,12 +21,10 @@ defaults:
     working-directory: ./
 
 jobs:
-  mirror-pkgs:
-    # as advised by github!
+  call-mirror-workflow:
+      # as advised by github!
     permissions:
       contents: read
-
-    runs-on: ubuntu-latest
 
     strategy:
       max-parallel: 12
@@ -41,16 +39,12 @@ jobs:
           - noarch
       fail-fast: false
 
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: main
-
-      - uses: channel-mirrors/mirrormirror/.github/workflows/run_mirror.yml@main
-        with:
-          channel: ${{ github.event.inputs.channel }}
-          package: ${{ github.event.inputs.package }}
-          subdir: ${{ matrix.subdir }}
-          registry: https://ghcr.io/channel-mirrors
-          ORAS_PASS: ${{ secrets.GHA_PAT }}
-          ORAS_USER: ${{ secrets.GHA_USER }}
+    uses: channel-mirrors/mirrormirror/.github/workflows/run_mirror.yml@main
+    with:
+      channel: ${{ github.event.inputs.channel }}
+      package: ${{ github.event.inputs.package }}
+      subdir: ${{ matrix.subdir }}
+      registry: https://ghcr.io/channel-mirrors
+    secrets:
+      ORAS_PASS: ${{ secrets.GHA_PAT }}
+      ORAS_USER: ${{ secrets.GHA_USER }}

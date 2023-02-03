@@ -34,6 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+
       - name: install mamba
         uses: mamba-org/provision-with-micromamba@main
         with:
