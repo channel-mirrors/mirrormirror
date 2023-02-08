@@ -36,7 +36,7 @@ jobs:
     uses: channel-mirrors/mirrormirror/.github/workflows/run_mirror.yml@main
     with:
       channel: ${{ matrix.channel }}
-      package: ${{ github.event.inputs.package }}
+      package: all
       subdir: ${{ matrix.subdir }}
       registry: ghcr.io/channel-mirrors
       workers: 4
