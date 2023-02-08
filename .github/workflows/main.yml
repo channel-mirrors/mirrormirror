@@ -15,6 +15,16 @@ on:
         description: 'Package to be mirrored. Enter "all" if want to mirror all packages of the channel'
         required: true
         type: string
+      workers:
+        description: 'How many (python) workers to use. Default is 4'
+        required: true
+        default: "4"
+        type: string
+      timeout:
+        description: 'Timeout in milliseconds. Default is 700'
+        required: true
+        default: "700"
+        type: string
 
 defaults:
   run:
@@ -45,6 +55,8 @@ jobs:
       package: ${{ github.event.inputs.package }}
       subdir: ${{ matrix.subdir }}
       registry: ghcr.io/channel-mirrors
+      workers: ${{ github.event.inputs.workers }}
+      timeout: ${{ github.event.inputs.timeout }}
+      ORAS_USER: "channel-mirrors"
     secrets:
       ORAS_PASS: ${{ secrets.GHA_PAT }}
-      ORAS_USER: "channel-mirrors"

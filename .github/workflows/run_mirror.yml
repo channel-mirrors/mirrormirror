@@ -18,10 +18,19 @@ on:
       subdir:
         required: true
         type: string
-
-    secrets:
+      timeout:
+        required: true
+        default: 700
+        type: number
+      workers:
+        required: true
+        default: 4
+        type: number
       ORAS_USER:
         required: true
+        type: string
+
+    secrets:
       ORAS_PASS:
         required: true
 
@@ -63,4 +72,6 @@ jobs:
             --channel ${{ inputs.channel }} \
             --subdir ${{ inputs.subdir }} \
             --package ${{ inputs.package }} \
-            --registry ${{ inputs.registry }}
+            --registry ${{ inputs.registry }} \
+            --timeout ${{ inputs.timeout }} \
+            --workers ${{ inputs.workers }}
