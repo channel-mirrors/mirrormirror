@@ -65,7 +65,7 @@ jobs:
       - name:  clone project and mirror
         shell: bash -l {0}
         env:
-          ORAS_USER: ${{ secrets.ORAS_USER }}
+          ORAS_USER: ${{ inputs.ORAS_USER }}
           ORAS_PASS: ${{ secrets.ORAS_PASS }}
         run: |
           conda-oci mirror \
