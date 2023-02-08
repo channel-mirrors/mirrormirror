@@ -2,10 +2,10 @@ permissions:
   contents: read
 
 name: Download and Mirror packages from anaconda 
-# on:
-#   workflow_dispatch:
-#   schedule:
-#     - cron: "13 */6 * * *"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "13 */6 * * *"
 
 defaults:
   run:
@@ -16,8 +16,6 @@ jobs:
     # as advised by github!
     permissions:
       contents: read
-
-    runs-on: ubuntu-latest
 
     strategy:
       max-parallel: 1
@@ -35,29 +33,14 @@ jobs:
           - bioconda
       fail-fast: false
 
-    env:
-      GHA_USER: channel-mirrors
-      GHA_PAT: ${{ secrets.GHA_PAT }}
-
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: main
-
-      - name: install mamba
-        uses: mamba-org/provision-with-micromamba@main
-        with:
-          environment-file: env.yml
-          micromamba-version: latest
-
-      - name:  clone project and mirror
-        shell: bash -l {0}
-        run: |
-          export PYTHONUNBUFFERED=1
-          python -m pip install git+https://github.com/wolfv/conda_oci_mirror@slow_upload
-          echo ${{ env.GHA_PAT }} | oras login https://ghcr.io -u ${{ env.GHA_USER }} --password-stdin
-          conda-oci mirror \
-            --channel ${{ matrix.channel }} \
-            --subdirs ${{ matrix.subdir }} \
-            --packages "*" \
-            --user ${{ env.GHA_USER }}
+    uses: channel-mirrors/mirrormirror/.github/workflows/run_mirror.yml@main
+    with:
+      channel: ${{ matrix.channel }}
+      package: ${{ github.event.inputs.package }}
+      subdir: ${{ matrix.subdir }}
+      registry: ghcr.io/channel-mirrors
+      workers: 4
+      timeout: 500
+      ORAS_USER: "channel-mirrors"
+    secrets:
+      ORAS_PASS: ${{ secrets.GHA_PAT }}
