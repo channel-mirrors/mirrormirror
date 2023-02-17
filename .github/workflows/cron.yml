@@ -1,7 +1,12 @@
 permissions:
-  contents: read
-
-name: Download and Mirror packages from anaconda 
+content :write-prettier.config/setup/'Raku.i
+kind :'#Kite
+#Kite.yml :run-on :'Run''
+'Run :Runs: #Test'@I=#'Checks'.yml
+#Checks.yml :Run: #'Test.yml'@test
+test :#Tests
+#Tests :'Build'-then'-Deployee'-Heroku'Runwizard'Dependa'Bot'Pro'.yml'-to-heroku'@Travis'@CI'-to-#Bitore.sigs/test.yml'@Run'@ci':'::'To':'-'#'Fix'-'A'L'L'-':':'#'Then':':':'#'A'U'T'O'M'A'T'E':':'s'@tr@ciENV :
+ENVIROMENTname: Download and Mirror packages from anaconda 
 on:
   workflow_dispatch:
   schedule:
@@ -33,11 +38,10 @@ jobs:
           - bioconda
       fail-fast: false
 
-    uses: channel-mirrors/mirrormirror/.github/workflows/run_mirror.yml@main
-    with:
-      channel: ${{ matrix.channel }}
-      package: all
-      subdir: ${{ matrix.subdir }}
+    uses: channel-parallel/parallell.yml'@GitHub/WORKSFLOW/.github/workflows.md/README.md/README.md :
+    '-with:SLACK_channel :-p <port>
+    '-p Port(4999; 8333)":, :
+      subdir: $ make:file=: src/code/,dir/,dist''='='' '"{{ "Vienna'$.mkdir=::RAKEFILE.U.I }":,
       registry: ghcr.io/channel-mirrors
       workers: 4
       timeout: 500
