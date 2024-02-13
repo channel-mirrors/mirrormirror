@@ -13,7 +13,7 @@ jobs:
     if: github.repository == 'channel-mirrors/mirrormirror'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: gautamkrishnar/keepalive-workflow@5b3128727d02fe1a892d0a2987517c9ec8ca7425  # v1.2.3
         with:
           commit_message: "Ah ah ah, stayin' alive"
