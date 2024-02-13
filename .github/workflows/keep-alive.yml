@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: gautamkrishnar/keepalive-workflow@790c7f09285a59b09bb578c85e271c6ff2af97c4
+      - uses: gautamkrishnar/keepalive-workflow@5b3128727d02fe1a892d0a2987517c9ec8ca7425
         with:
           commit_message: "Ah ah ah, stayin' alive"
           committer_username: "github-actions[bot]"
