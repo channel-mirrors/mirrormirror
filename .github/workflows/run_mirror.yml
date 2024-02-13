@@ -47,23 +47,23 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: main
 
       - name: install mamba
-        uses: mamba-org/provision-with-micromamba@main
+        uses: mamba-org/setup-micromamba@v1
         with:
           environment-file: env.yml
           micromamba-version: latest
 
       - name: install conda-oci-mirror
-        shell: bash -l {0}
+        shell: bash -el {0}
         run: |
           python -m pip install git+https://github.com/channel-mirrors/conda-oci-mirror@main
 
       - name:  clone project and mirror
-        shell: bash -l {0}
+        shell: bash -el {0}
         env:
           ORAS_USER: ${{ inputs.ORAS_USER }}
           ORAS_PASS: ${{ secrets.ORAS_PASS }}
