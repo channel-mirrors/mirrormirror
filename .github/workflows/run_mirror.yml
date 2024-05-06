@@ -47,12 +47,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b  # v4
         with:
           ref: main
 
       - name: install mamba
-        uses: mamba-org/provision-with-micromamba@main
+        uses: mamba-org/provision-with-micromamba@3c96c0c27676490c63c18bc81f5c51895ac3e0e6  # v16
         with:
           environment-file: env.yml
           micromamba-version: latest
