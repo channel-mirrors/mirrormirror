@@ -4,8 +4,8 @@ permissions:
 name: Download and Mirror packages from anaconda 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "13 */6 * * *"
+  # schedule:
+  #   - cron: "13 */6 * * *"
 
 defaults:
   run:
