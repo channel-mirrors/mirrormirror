@@ -52,10 +52,9 @@ jobs:
           ref: main
 
       - name: install mamba
-        uses: mamba-org/provision-with-micromamba@3c96c0c27676490c63c18bc81f5c51895ac3e0e6  # v16
+        uses: mamba-org/setup-micromamba@v1
         with:
           environment-file: env.yml
-          micromamba-version: latest
 
       - name: install conda-oci-mirror
         shell: bash -l {0}
