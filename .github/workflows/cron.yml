@@ -44,12 +44,3 @@ jobs:
       ORAS_USER: "channel-mirrors"
     secrets:
       ORAS_PASS: ${{ secrets.GHA_PAT }}
-
-  keep-alive:
-    name: Keep Alive
-    if: github.repository == 'channel-mirrors/mirrormirror'
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - uses: conda-forge/keepalive-action@7a9194bad497f0b993708eeaf10fc0a2d726eb71 
