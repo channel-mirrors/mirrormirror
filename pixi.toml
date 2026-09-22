@@ -1,0 +1,10 @@
+[workspace]
+name = "mirrormirror"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64"]
+
+[dependencies]
+python = "3.12.*"
+
+[pypi-dependencies]
+conda-oci-mirror = { git = "https://github.com/channel-mirrors/conda-oci-mirror.git", branch = "main" }

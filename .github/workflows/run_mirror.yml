@@ -51,23 +51,18 @@ jobs:
         with:
           ref: main
 
-      - name: install mamba
-        uses: mamba-org/setup-micromamba@7f29b8b80078b1b601dfa018b0f7425c587c63bb # v2.0.7
+      - name: Set up Pixi
+        uses: prefix-dev/setup-pixi@d3f436a425481402e6a95a1d1fc10331c708cd9e # v0.10.2
         with:
-          environment-file: env.yml
+          pixi-version: v0.81.0
+          locked: true
 
-      - name: install conda-oci-mirror
-        shell: bash -l {0}
-        run: |
-          python -m pip install git+https://github.com/channel-mirrors/conda-oci-mirror@main
-
-      - name:  clone project and mirror
-        shell: bash -l {0}
+      - name: Mirror packages
         env:
           ORAS_USER: ${{ inputs.ORAS_USER }}
           ORAS_PASS: ${{ secrets.ORAS_PASS }}
         run: |
-          conda-oci mirror \
+          pixi run --locked conda-oci mirror \
             --channel ${{ inputs.channel }} \
             --subdir ${{ inputs.subdir }} \
             --package ${{ inputs.package }} \
