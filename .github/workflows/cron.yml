@@ -7,6 +7,13 @@ on:
   schedule:
     - cron: "13 */6 * * *"
 
+# Only one mirror run at a time, across cron.yml and main.yml: a run started
+# while another is running waits and never cancels it. GitHub keeps at most one
+# waiting run per group; a newer one replaces (cancels) an older waiting run.
+concurrency:
+  group: mirror-ghcr
+  cancel-in-progress: false
+
 defaults:
   run:
     working-directory: ./
