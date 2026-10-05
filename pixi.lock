@@ -43,7 +43,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_7.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.7.22-hbd8a1cb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026c-h151e31d_0.conda
-      - pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#a92c561b97d19ad6e83e3447f41301c317de7f80
+      - pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#03a5b97f7f0c709ff4d9437cd78654e57820be0c
       - pypi: https://files.pythonhosted.org/packages/04/8f/d2f3f532616be4d06c316ef119683e832bd3d41e112bf3a88f4151c95b17/rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/10/a9/121aa64e09dd869422a65158a9df596d0750460baac11085bca3d1444795/oras-0.1.14-py3-none-any.whl
@@ -80,7 +80,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/python-3.12.14-hd05a0c4_3_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/readline-8.3-h8b90a29_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-hbeba79b_4.conda
-      - pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#a92c561b97d19ad6e83e3447f41301c317de7f80
+      - pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#03a5b97f7f0c709ff4d9437cd78654e57820be0c
       - pypi: https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/10/a9/121aa64e09dd869422a65158a9df596d0750460baac11085bca3d1444795/oras-0.1.14-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl
@@ -656,9 +656,9 @@ packages:
     - tk >=8.6.13,<8.7.0a0
   size: 3342183
   timestamp: 1787272852357
-- pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#a92c561b97d19ad6e83e3447f41301c317de7f80
+- pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#03a5b97f7f0c709ff4d9437cd78654e57820be0c
   name: conda-oci-mirror
-  version: 0.2.4.dev15+ga92c561b9
+  version: 0.2.4.dev17+g03a5b97f7
   requires_dist:
   - click
   - requests
