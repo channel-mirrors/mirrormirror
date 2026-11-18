@@ -2,13 +2,13 @@ version: 7
 platforms:
 - name: linux-64
   virtual-packages:
-  - __unix=0=0
+  - __unix=0
   - __linux=4.18
   - __glibc=2.28
   - __archspec=0=x86_64
 - name: osx-arm64
   virtual-packages:
-  - __unix=0=0
+  - __unix=0
   - __osx=13.0
   - __archspec=0=m1
 environments:
@@ -43,12 +43,12 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_7.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.7.22-hbd8a1cb_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026c-h151e31d_0.conda
-      - pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#538652f8af2240c28d91c777d05db91213167699
+      - pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#6d792599078517843f940d97991baf6d7a53cd78
       - pypi: https://files.pythonhosted.org/packages/04/8f/d2f3f532616be4d06c316ef119683e832bd3d41e112bf3a88f4151c95b17/rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/10/a9/121aa64e09dd869422a65158a9df596d0750460baac11085bca3d1444795/oras-0.1.14-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1e/40/121917bd2671bc3f1507c25503c0554f0b52483edcca4e6210e6d22228df/backports_zstd-1.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/38/99/fb7c16f35fc9085335edf996e7a57d33d79425d42011ad6201152f7306bb/oras-0.2.44-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/41/f0/29f591bea185616cf417645ac03bd3ad9b317483ad8572160e325f7fe777/msgpack-1.2.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
@@ -80,11 +80,11 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/python-3.12.14-hd05a0c4_3_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/readline-8.3-h8b90a29_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-hbeba79b_4.conda
-      - pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#538652f8af2240c28d91c777d05db91213167699
+      - pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#6d792599078517843f940d97991baf6d7a53cd78
       - pypi: https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/10/a9/121aa64e09dd869422a65158a9df596d0750460baac11085bca3d1444795/oras-0.1.14-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/30/27/78873dc8b6a56357517b74b6bb9568b80450e7bb4f6ef7e3fa9d22aa0bd7/charset_normalizer-3.5.1-cp312-cp312-macosx_10_13_universal2.whl
+      - pypi: https://files.pythonhosted.org/packages/38/99/fb7c16f35fc9085335edf996e7a57d33d79425d42011ad6201152f7306bb/oras-0.2.44-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4f/7e/60286a5fe7f6368d26087d1028f5589874a1ab0bde7f56858bdf0f5e2afe/py_rattler-0.26.0-cp310-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl
@@ -656,13 +656,13 @@ packages:
     - tk >=8.6.13,<8.7.0a0
   size: 3342183
   timestamp: 1787272852357
-- pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#538652f8af2240c28d91c777d05db91213167699
+- pypi: git+https://github.com/channel-mirrors/conda-oci-mirror.git?branch=main#6d792599078517843f940d97991baf6d7a53cd78
   name: conda-oci-mirror
-  version: 0.2.4.dev18+g538652f8a
+  version: 0.3.1.dev5+g6d7925990
   requires_dist:
   - click
   - requests
-  - oras==0.1.14
+  - oras>=0.2.43,<0.3
   - conda-package-handling
   - zstandard
   - py-rattler>=0.15
@@ -678,29 +678,6 @@ packages:
   version: 2026.7.22
   sha256: 62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775
   requires_python: '>=3.7'
-- pypi: https://files.pythonhosted.org/packages/10/a9/121aa64e09dd869422a65158a9df596d0750460baac11085bca3d1444795/oras-0.1.14-py3-none-any.whl
-  name: oras
-  version: 0.1.14
-  sha256: a3cf01cd279d507fb7fd2df7723a3fa1633955099fb3d412abe76cbe2ee10743
-  requires_dist:
-  - jsonschema
-  - requests
-  - jsonschema ; extra == 'all'
-  - requests ; extra == 'all'
-  - pytest>=4.6.2 ; extra == 'all'
-  - mypy ; extra == 'all'
-  - pyflakes ; extra == 'all'
-  - black ; extra == 'all'
-  - types-requests ; extra == 'all'
-  - isort ; extra == 'all'
-  - docker==5.0.1 ; extra == 'all'
-  - docker==5.0.1 ; extra == 'docker'
-  - pytest>=4.6.2 ; extra == 'tests'
-  - mypy ; extra == 'tests'
-  - pyflakes ; extra == 'tests'
-  - black ; extra == 'tests'
-  - types-requests ; extra == 'tests'
-  - isort ; extra == 'tests'
 - pypi: https://files.pythonhosted.org/packages/1e/40/121917bd2671bc3f1507c25503c0554f0b52483edcca4e6210e6d22228df/backports_zstd-1.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
   name: backports-zstd
   version: 1.7.0
@@ -720,6 +697,21 @@ packages:
   version: 3.5.1
   sha256: 5b6d1386bf0096d26d3a863dc0a487a5b4eb9aa93cf5ba69683d29dde6b9d60f
   requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/38/99/fb7c16f35fc9085335edf996e7a57d33d79425d42011ad6201152f7306bb/oras-0.2.44-py3-none-any.whl
+  name: oras
+  version: 0.2.44
+  sha256: 7bfbfa166d2874a26b2ff87d5a95262686ba12e0ae8623f20dc0cdc1bd20d26b
+  requires_dist:
+  - jsonschema
+  - requests
+  - jsonschema ; extra == 'all'
+  - requests ; extra == 'all'
+  - pytest>=4.6.2 ; extra == 'all'
+  - docker==5.0.1 ; extra == 'all'
+  - boto3>=1.33.0 ; extra == 'all'
+  - pytest>=4.6.2 ; extra == 'tests'
+  - docker==5.0.1 ; extra == 'docker'
+  - boto3>=1.33.0 ; extra == 'ecr'
 - pypi: https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl
   name: jsonschema-specifications
   version: 2025.9.1
